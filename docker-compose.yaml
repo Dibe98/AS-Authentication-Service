@@ -20,6 +20,8 @@ services:
 
   mysql:
     image: mysql:5.7
+    ports:
+      - 3306:3306
     networks:
       auth-service:
         ipv4_address: 10.5.0.5

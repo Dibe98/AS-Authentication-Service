@@ -1,8 +1,10 @@
 # mysql data
 mysql_data/*
 !mysql_data/mysqldir.md
+!mysql_data/as-db.sql
 # noodered data
 nodered_data/.config.*
+nodered_data/.flows.*
 nodered_data/.config.nodes.json
 /nodered_data/keys/*
 /nodered_data/node_modules
