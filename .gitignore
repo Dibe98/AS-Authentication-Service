@@ -1,0 +1,6 @@
+# mysql data
+mysql_data/*
+# noodered data
+/nodered_data/keys/*
+
+/nodered_data/node_modules

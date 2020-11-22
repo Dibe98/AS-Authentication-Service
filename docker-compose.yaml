@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  node-red:
+    image: nodered/node-red
+    command: sh -c "npm install"
+    ports:
+      - 1880:1880
+    networks:
+      auth-service:
+        ipv4_address: 10.5.0.6
+    working_dir: /usr/src/node-red/
+    volumes:
+      - ./nodered_data:/data
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: asmysqlmngpwd
+      MYSQL_DB: as-db
+
+  mysql:
+    image: mysql:5.7
+    networks:
+      auth-service:
+        ipv4_address: 10.5.0.5
+
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: asmysqlmngpwd
+      MYSQL_DATABASE: as-db
+
+networks:
+  auth-service:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
