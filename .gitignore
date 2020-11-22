@@ -1,5 +1,6 @@
 # mysql data
 mysql_data/*
+!mysql_data/mysqldir.md
 # noodered data
 nodered_data/.config.*
 nodered_data/.config.nodes.json
